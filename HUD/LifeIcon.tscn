@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Sprites/sg-mini2.png" type="Texture" id=1]
+
+[node name="LifeIcon" type="TextureRect"]
+anchor_right = 0.142222
+anchor_bottom = 0.106667
+margin_right = -47.0
+margin_bottom = -26.0
+texture = ExtResource( 1 )
