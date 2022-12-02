@@ -39,7 +39,6 @@ func _on_Area2D_area_entered(area):
 	if area is Player:
 		playerInArea = area
 
-
 func _on_Area2D_area_exited(area):
 	if area is Player:
 		playerInArea = area

@@ -10,7 +10,7 @@ var playerInArea: Player = null
 func _ready():
 	speed = rand_range(minSpeed, maxSpeed)
 
-func _process(delta):
+func _process(_delta):
 	playerCollision()
 
 func _physics_process(delta):

@@ -12,6 +12,9 @@ export var noteMaxSpeed: float = 80.0
 var time: float = 0
 var start = OS.get_ticks_msec()
 
+func _ready():
+	randomize()
+
 func _process(delta):
 	time += delta
 	
@@ -50,3 +53,11 @@ func spwaner(x, y):
 	object.position.y = y
 
 	get_parent().add_child(object)
+
+
+func _on_Player_died():
+	game_over()
+
+func game_over():
+#	stop spawner
+	pass

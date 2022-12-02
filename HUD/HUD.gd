@@ -9,7 +9,9 @@ var score: int = 0
 
 func _ready():
 	clearLives()
+# warning-ignore:return_value_discarded
 	Signals.connect("on_player_life_changed", self, "_on_player_life_changed")
+# warning-ignore:return_value_discarded
 	Signals.connect("on_score_increment", self, "_on_score_increment")
 
 func clearLives():
@@ -26,4 +28,4 @@ func _on_player_life_changed(life: int):
 
 func _on_score_increment(amount: int):
 	score += amount
-	scoreLabel.text = str(score)
+	scoreLabel.text = "SCORE: " + str(score)

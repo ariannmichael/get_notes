@@ -8,9 +8,9 @@
 [node name="Gameplay" type="Node"]
 script = ExtResource( 5 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="HUD" type="CanvasLayer" parent="."]
 
-[node name="HUD" parent="CanvasLayer" instance=ExtResource( 4 )]
+[node name="HUD" parent="HUD" instance=ExtResource( 4 )]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 230, 460 )
@@ -21,3 +21,5 @@ modulate = Color( 1, 1, 1, 0.627451 )
 position = Vector2( 225.5, 302.5 )
 scale = Vector2( 7.047, 9.5 )
 texture = ExtResource( 2 )
+
+[connection signal="died" from="Player" to="." method="_on_Player_died"]
