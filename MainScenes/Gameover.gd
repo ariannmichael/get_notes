@@ -14,5 +14,6 @@ func _on_Restart_pressed():
 	for object in objects:
 		object.queue_free()
 		
+# warning-ignore:return_value_discarded
 	get_tree().reload_current_scene()
 	#get_tree().change_scene("res://MainScenes/Startup.tscn")
