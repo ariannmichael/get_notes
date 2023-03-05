@@ -8,6 +8,7 @@
 size = 22
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
 font_data = ExtResource( 3 )
 
 [node name="HUD" type="Control"]

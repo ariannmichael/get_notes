@@ -20,7 +20,6 @@ func speedUp():
 	minSpeed += 10
 	maxSpeed += 10
 	speed = rand_range(minSpeed, maxSpeed)
-	print(speed)
 
 func playerCollision():
 	if playerInArea != null:

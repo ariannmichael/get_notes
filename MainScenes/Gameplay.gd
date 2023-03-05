@@ -3,6 +3,11 @@ extends Node
 var plEnemy = preload("res://Enemy/Enemy.tscn")
 var plNote = preload("res://Note/Note.tscn")
 
+const SAVE_FILE_PATH = "user://savedata.save"
+
+onready var gameover_layer = $Gameover
+onready var HUD = $HUD/HUD
+
 export var enemyMinSpeed: float = 90.0
 export var enemyMaxSpeed: float = 100.0
 
@@ -11,11 +16,16 @@ export var noteMaxSpeed: float = 80.0
 
 var time: float = 0
 var start = OS.get_ticks_msec()
+var playerAlive: bool = true
+var highscore = 0
 
 func _ready():
 	randomize()
+	load_highscore()
 
 func _process(delta):
+	if !playerAlive: return 
+	
 	time += delta
 	
 	if time >= 1:
@@ -59,5 +69,25 @@ func _on_Player_died():
 	game_over()
 
 func game_over():
-#	stop spawner
-	pass
+	playerAlive = false
+	get_tree().call_group("pickable", "set_physics_process", false)
+	var score = HUD.score
+	
+	if score > highscore:
+		highscore = score
+		save_highscore()
+		
+	gameover_layer.init_game_over_menu(score, highscore)
+
+func save_highscore():
+	var save_data = File.new()
+	save_data.open(SAVE_FILE_PATH, File.WRITE)
+	save_data.store_var(highscore)
+	save_data.close()
+
+func load_highscore():
+	var save_data = File.new()
+	if save_data.file_exists(SAVE_FILE_PATH):
+		save_data.open(SAVE_FILE_PATH, File.READ)
+		highscore = save_data.get_var()
+		save_data.close()
