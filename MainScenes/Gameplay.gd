@@ -7,12 +7,13 @@ const SAVE_FILE_PATH = "user://savedata.save"
 
 onready var gameover_layer = $Gameover
 onready var HUD = $HUD/HUD
+onready var death_sound = $Death
 
-export var enemyMinSpeed: float = 90.0
-export var enemyMaxSpeed: float = 100.0
+export var enemyMinSpeed: float = 100.0
+export var enemyMaxSpeed: float = 120.0
 
-export var noteMinSpeed: float = 60.0
-export var noteMaxSpeed: float = 80.0
+export var noteMinSpeed: float = 70.0
+export var noteMaxSpeed: float = 90.0
 
 var time: float = 0
 var start = OS.get_ticks_msec()
@@ -66,6 +67,7 @@ func spwaner(x, y):
 
 
 func _on_Player_died():
+	death_sound.play()
 	game_over()
 
 func game_over():

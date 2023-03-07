@@ -1,6 +1,8 @@
 extends Area2D
 class_name Note
 
+onready var point_sound = $Point
+
 export var minSpeed: float = 60.0
 export var maxSpeed: float = 80.0
 
@@ -30,6 +32,7 @@ func speedUp():
 func playerCollision():
 	if playerInArea != null:
 		Signals.emit_signal("on_score_increment", 1)
+		point_sound.play()
 		queue_free()
 
 func _on_VisibilityNotifier2D_screen_exited():

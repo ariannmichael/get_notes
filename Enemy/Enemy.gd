@@ -1,6 +1,8 @@
 extends Area2D
 class_name Enemy
 
+onready var hurt_sound = $Hurt
+
 export var minSpeed: float = 90.0
 export var maxSpeed: float = 100.0
 
@@ -24,6 +26,7 @@ func speedUp():
 func playerCollision():
 	if playerInArea != null:
 		playerInArea.damage(1)
+		hurt_sound.play()
 		queue_free()
 
 func _on_VisibilityNotifier2D_screen_exited():

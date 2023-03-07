@@ -35,7 +35,7 @@ margin_bottom = 268.0
 custom_fonts/font = SubResource( 2 )
 text = "GET NOTES"
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Background" type="Sprite" parent="."]
 modulate = Color( 1, 1, 1, 0.847059 )
 position = Vector2( 225.5, 302.5 )
 scale = Vector2( 7.047, 9.5 )
