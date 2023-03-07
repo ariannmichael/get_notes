@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/background-export.png-6e00d5903ab50dd9ad991d2dec551f92.stex"
+path="res://.import/Les Paul - broke2.png-45e490770195bda1f21bd4eafb522fba.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/background-export.png"
-dest_files=[ "res://.import/background-export.png-6e00d5903ab50dd9ad991d2dec551f92.stex" ]
+source_file="res://Sprites/Les Paul - broke2.png"
+dest_files=[ "res://.import/Les Paul - broke2.png-45e490770195bda1f21bd4eafb522fba.stex" ]
 
 [params]
 

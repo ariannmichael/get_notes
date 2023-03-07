@@ -3,6 +3,8 @@ class_name Player
 
 signal died
 
+onready var hurt_sound = $Hurt
+
 onready var invicibilityTimer := $InvicibilityTimer
 onready var animationPlayer := $AnimationPlayer
 
@@ -52,6 +54,7 @@ func damage(amount: int):
 	invicibilityTimer.start(damageInvicibilityTime)
 	animationPlayer.play("Blink")
 	life -= amount
+	hurt_sound.play()
 	Signals.emit_signal("on_player_life_changed", life)
 	
 	if life <= 0:

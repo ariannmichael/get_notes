@@ -2,6 +2,8 @@ extends Control
 
 var plLifeIcon = preload("res://HUD/LifeIcon.tscn")
 
+onready var point_sound = $Point
+
 onready var lifeContainer := $LifeContainer
 onready var scoreLabel := $Score
 
@@ -28,4 +30,5 @@ func _on_player_life_changed(life: int):
 
 func _on_score_increment(amount: int):
 	score += amount
+	point_sound.play()
 	scoreLabel.text = "SCORE: " + str(score)
