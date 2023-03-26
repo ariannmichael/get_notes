@@ -13,24 +13,33 @@ export var damageInvicibilityTime: float = 2
 export var speed: float = 200
 var velocity := Vector2.ZERO
 var is_dragging: bool = false
-var touchpos = 0
+var touchPos = Vector2()
 var alive = true
+var areaEnt = false
+var deltaX
+var deltaY
+var newDeltaX
+var newDeltaY
 
 func _ready():
 	Signals.emit_signal("on_player_life_changed", life)
 
 func _input(event):
-	if event is InputEventMouseButton:
-		is_dragging = true
-	else:
-		is_dragging = false
-	
-	if is_dragging:
-		touchpos = event.position
+	if areaEnt:
+		var viewRect := get_viewport_rect()
+		if event is InputEventScreenTouch and event.is_pressed():
+			touchPos = event.get_position()
+			deltaX = touchPos.x - position.x
+			deltaX = clamp(deltaX, viewRect.position.x, viewRect.end.x)
+		elif event is InputEventScreenDrag:
+			touchPos = event.get_position()
+			newDeltaX = touchPos.x - deltaX
+			newDeltaX = clamp(newDeltaX, viewRect.position.x, viewRect.end.x)
+			set_position(Vector2(newDeltaX, position.y))
 
-func _physics_process(delta):
-	if alive:
-		movement(delta)
+#func _physics_process(delta):
+	#if alive:
+		#movement(delta)
 
 func movement(delta):
 	var dirVec := Vector2.ZERO
@@ -64,3 +73,10 @@ func damage(amount: int):
 
 func _on_InvicibilityTimer_timeout():
 	animationPlayer.stop()
+
+
+func _on_TouchScreenButton_pressed():
+	areaEnt = true
+
+func _on_TouchScreenButton_released():
+	areaEnt = false
