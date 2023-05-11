@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/get_notes_blues_intro.mp3-278ae5ef754a1eed781200caeb173d0f.mp3str"
+
+[deps]
+
+source_file="res://Music/get_notes_blues_intro.mp3"
+dest_files=[ "res://.import/get_notes_blues_intro.mp3-278ae5ef754a1eed781200caeb173d0f.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
