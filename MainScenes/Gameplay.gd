@@ -52,7 +52,6 @@ func speedUp():
 	if(spawn_delay_value > 10.0):
 		spawn_delay_value -= 6.0 
 		spawn_delay = spawn_delay_value/spawn_delay_time
-	print(spawn_delay)
 
 func spwaner(x, y):
 	var objectType = int(rand_range(0, 2))
