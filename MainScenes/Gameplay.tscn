@@ -6,7 +6,7 @@
 [ext_resource path="res://HUD/HUD.tscn" type="PackedScene" id=4]
 [ext_resource path="res://MainScenes/Gameplay.gd" type="Script" id=5]
 [ext_resource path="res://Music/death.wav" type="AudioStream" id=6]
-[ext_resource path="res://Music/get_notes_blues_gameplay_without_intro.mp3" type="AudioStream" id=7]
+[ext_resource path="res://Music/new_gameplay.mp3" type="AudioStream" id=7]
 
 [node name="Gameplay" type="Node"]
 script = ExtResource( 5 )

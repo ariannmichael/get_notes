@@ -20,6 +20,9 @@ var time: float = 0
 var start = OS.get_ticks_msec()
 var playerAlive: bool = true
 var highscore = 0
+var spawn_delay_value = 80.0
+var spawn_delay_time = 60.0
+var spawn_delay = spawn_delay_value/spawn_delay_time
 
 func _ready():
 	randomize()
@@ -30,8 +33,8 @@ func _process(delta):
 	
 	time += delta
 	
-	if time >= 1:
-		time = 0
+	if time >= spawn_delay:
+		time -= spawn_delay
 		var positionX = rand_range(0, get_viewport().size.x)
 		var positionY = 0
 		
@@ -46,6 +49,10 @@ func speedUp():
 	enemyMaxSpeed += 10
 	noteMinSpeed += 10
 	noteMaxSpeed += 10
+	if(spawn_delay_value > 10.0):
+		spawn_delay_value -= 6.5 
+		spawn_delay = spawn_delay_value/spawn_delay_time
+	print(spawn_delay)
 
 func spwaner(x, y):
 	var objectType = int(rand_range(0, 2))
