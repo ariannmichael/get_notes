@@ -50,7 +50,7 @@ func speedUp():
 	noteMinSpeed += 10
 	noteMaxSpeed += 10
 	if(spawn_delay_value > 10.0):
-		spawn_delay_value -= 6.0 
+		spawn_delay_value -= 4.5 
 		spawn_delay = spawn_delay_value/spawn_delay_time
 
 func spwaner(x, y):
